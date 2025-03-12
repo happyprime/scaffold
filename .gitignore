@@ -1,0 +1,17 @@
+/node_modules/
+/vendor/
+/plugins/
+/themes/*
+!/themes/scaffold
+/uploads/
+/upgrade/
+/mu-plugins/*
+!/mu-plugins/scaffold
+db.php
+debug.log
+
+.DS_Store
+
+# Only ignore in the scaffold directory.
+composer.lock
+package-lock.json

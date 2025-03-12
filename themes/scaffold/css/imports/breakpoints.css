@@ -1,0 +1,11 @@
+@custom-media --small-viewport (max-width: 37.5em); /* 600px */
+@custom-media --gt-small-viewport (min-width: 37.501em);
+@custom-media --medium-viewport (max-width: 48.8125em); /* 781px - WordPress column breakpoint */
+@custom-media --gt-medium-viewport (min-width: 48.8126em);
+@custom-media --large-viewport (max-width: 56.25em); /* 900px */
+@custom-media --gt-large-viewport (min-width: 56.251em);
+@custom-media --larger-viewport (max-width: 75em); /* 1200px */
+@custom-media --gt-larger-viewport (min-width: 75.001em);
+
+@custom-media --mobile-nav (max-width: 62.5em); /* 1000px */
+@custom-media --desktop-nav (min-width: 62.501em);

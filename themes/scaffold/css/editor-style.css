@@ -1,0 +1,10 @@
+@import "imports/reset.css";
+@import "imports/variables.css";
+@import "imports/elements.css";
+@import "imports/global-components.css";
+@import "imports/blocks.css";
+
+
+.wp-site-blocks:has(.mobile-nav) div.toggle-block-hidden {
+	display: flex;
+}

@@ -1,0 +1,78 @@
+{
+	"name": "scaffold",
+	"version": "0.0.1",
+	"description": "The scaffold.org website.",
+	"author": "Happy Prime",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"project"
+	],
+	"homepage": "https://github.com/happyprime/scaffold#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/happyprime/scaffold.git"
+	},
+	"bugs": {
+		"url": "https://github.com/happyprime/scaffold/issues"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.26.10",
+		"@babel/plugin-transform-runtime": "^7.26.10",
+		"@babel/preset-env": "^7.26.9",
+		"@babel/preset-react": "^7.26.3",
+		"@happyprime/eslint-config": "0.0.14",
+		"@happyprime/postcss-config": "^0.0.2",
+		"@happyprime/stylelint-config": "^0.0.5",
+		"@wordpress/browserslist-config": "^6.19.0",
+		"@wordpress/dependency-extraction-webpack-plugin": "^6.19.0",
+		"@wordpress/npm-package-json-lint-config": "^5.19.0",
+		"babel-loader": "^10.0.0",
+		"copy-webpack-plugin": "^13.0.0",
+		"npm-package-json-lint": "^8.0.0",
+		"webpack": "^5.98.0",
+		"webpack-cli": "^6.0.1"
+	},
+	"scripts": {
+		"build": "npm run build:css && npm run build:js",
+		"lint": "npm run lint:css && npm run lint:js",
+		"fix": "npm run fix:css && npm run fix:js",
+
+		"build:css": "npm run build:css:theme",
+		"build:css:theme": "npm run lint:css:theme && npm run postcss",
+
+		"build:js": "npm run build:js:blocks && npm run build:js:features",
+		"build:js:blocks": "webpack --mode production --env dir=mu-plugins/scaffold/blocks/src/",
+		"build:js:features": "webpack --mode production --env dir=mu-plugins/scaffold/js/src/ --env type=theme",
+
+		"start:js": "npm run start:js:blocks && npm run start:js:features",
+		"start:js:blocks": "webpack --mode development --watch --env dir=mu-plugins/scaffold/blocks/src/",
+		"start:js:features": "webpack --mode development --watch --env dir=mu-plugins/scaffold/js/src/ --env type=theme",
+
+		"postcss": "npm run postcss:main && npm run postcss:editor",
+		"postcss:main": "postcss -o themes/scaffold/style.css themes/scaffold/css/style.css",
+		"postcss:editor": "postcss -o themes/scaffold/editor-style.css themes/scaffold/css/editor-style.css",
+
+		"lint:css": "npm run lint:css:theme",
+		"lint:css:theme": "stylelint themes/scaffold/css/**/*.css",
+
+		"fix:css": "npm run fix:css:theme",
+		"fix:css:theme": "stylelint --fix themes/scaffold/css/**/*.css",
+
+		"lint:js": "npm run lint:js:blocks && npm run lint:js:features",
+		"lint:js:blocks": "eslint mu-plugins/scaffold/blocks/src/",
+		"lint:js:features": "eslint mu-plugins/scaffold/js/src/",
+
+		"fix:js": "npm run fix:js:blocks && npm run fix:js:features",
+		"fix:js:blocks": "eslint --fix mu-plugins/scaffold/blocks/src/",
+		"fix:js:features": "eslint --fix mu-plugins/scaffold/js/src/",
+
+		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config"
+	}
+}

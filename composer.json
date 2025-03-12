@@ -1,0 +1,42 @@
+{
+	"name": "happyprime/scaffold",
+	"type": "project",
+	"minimum-stability": "stable",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"require-dev": {
+		"happyprime/coding-standards": "*",
+		"phpcompatibility/php-compatibility": "dev-develop as 9.99.99"
+	},
+	"scripts": {
+		"phpcs": "vendor/bin/phpcs",
+		"phpcbf": "vendor/bin/phpcbf",
+		"lint": [
+			"@lint:theme",
+			"@lint:features"
+		],
+		"lint:theme": "phpcs --basepath=. ./themes/scaffold -v",
+		"lint:features": "phpcs --basepath=. ./mu-plugins/scaffold -v",
+		"fix": [
+			"@fix:theme",
+			"@fix:features"
+		],
+		"fix:theme": "phpcbf --basepath=. ./themes/scaffold -v",
+		"fix:features": "phpcbf --basepath=. ./mu-plugins/scaffold -v"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"preferred-install": {
+			"happyprime/*": "source",
+			"*": "dist"
+		}
+	}
+}

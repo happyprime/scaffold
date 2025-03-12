@@ -1,0 +1,54 @@
+body {
+		/* --- Widths --- */
+		--max-width: calc(1218px + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
+
+		/* --- Speed --- */
+		--speed: 0.22s;
+}
+
+:root {
+
+	/* --- Colors --- */
+	--color-background: var(--wp--preset--color--green-dark);
+	--color-text: var(--wp--preset--color--white);
+	--color-alt: var(--wp--preset--color--green-light);
+	--color-highlight: var(--wp--preset--color--blue-dark);
+	--color-highlight-hover: var(--wp--preset--color--green-medium);
+	--color-subtitle: var(--wp--preset--color--green-light);
+
+	@media (prefers-color-scheme: dark) {
+		--color-background: var(--wp--preset--color--green-dark);
+		--color-text: var(--wp--preset--color--white);
+		--color-alt: var(--wp--preset--color--green-light);
+		--color-highlight: var(--wp--preset--color--blue-dark);
+		--color-highlight-hover: var(--wp--preset--color--green-medium);
+		--color-subtitle: var(--wp--preset--color--green-light);
+	}
+
+	@media (prefers-color-scheme: light) {
+		--color-background: var(--wp--preset--color--blue-lightest);
+		--color-text: var(--wp--preset--color--blue-dark);
+		--color-alt: var(--wp--preset--color--blue-medium);
+		--color-highlight: var(--wp--preset--color--blue-light);
+		--color-highlight-hover: #cae6e6;
+		--color-subtitle: var(--wp--preset--color--blue-medium);
+	}
+}
+
+.prefers-color-scheme-dark {
+	--color-background: var(--wp--preset--color--green-dark);
+	--color-text: var(--wp--preset--color--white);
+	--color-alt: var(--wp--preset--color--green-light);
+	--color-highlight: var(--wp--preset--color--blue-dark);
+	--color-highlight-hover: var(--wp--preset--color--green-medium);
+	--color-subtitle: var(--wp--preset--color--green-light);
+}
+
+.prefers-color-scheme-light {
+	--color-background: var(--wp--preset--color--blue-lightest);
+	--color-text: var(--wp--preset--color--blue-dark);
+	--color-alt: var(--wp--preset--color--blue-medium);
+	--color-highlight: var(--wp--preset--color--blue-light);
+	--color-highlight-hover: #cae6e6;
+	--color-subtitle: var(--wp--preset--color--blue-medium);
+}

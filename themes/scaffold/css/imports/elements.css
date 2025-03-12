@@ -1,0 +1,31 @@
+
+/* --- Selection --- */
+::selection {
+	background: var(--wp--preset--color--red-dark);
+	color: var(--wp--preset--color--white);
+}
+
+/* --- Anchors --- */
+:is(a):not(.wp-element-button) {
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--subtitle);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+	transition: all var(--speed) linear;
+
+	&:hover {
+		text-decoration-color: transparent;
+	}
+
+	p & {
+		font-weight: 500;
+	}
+}
+
+/* --- List items --- */
+li {
+
+	&::marker {
+		color: var(--wp--preset--color--subtitle);
+	}
+}

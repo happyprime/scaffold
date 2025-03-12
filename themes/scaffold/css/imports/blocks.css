@@ -1,0 +1,144 @@
+/*--------------------------------------------------------------
+	# Core blocks and variations
+--------------------------------------------------------------*/
+
+/* --- Heading block --- */
+.wp-block-heading,
+.wp-block-post-title {
+	text-wrap: pretty
+}
+
+/* --- Button block --- */
+.wp-block-button {
+
+	.wp-block-button__link {
+		transition: all var(--speed) ease-in-out;
+
+		&:hover {
+			background-color: var(--wp--preset--color--red-dark);
+			color: var(--wp--preset--color--white);
+		}
+	}
+
+	&.is-style-outline {
+
+		.wp-block-button__link {
+
+			&:hover {
+				border-color: var(--wp--preset--color--red-dark);
+			}
+		}
+	}
+}
+
+/* --- Media/Text block --- */
+.wp-block-media-text {
+	gap: var(--wp--preset--spacing--7);
+
+	@media (--medium-viewport) {
+		grid-template-columns: 1fr;
+
+		.wp-block-media-text__media {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		.wp-block-media-text__content {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		&.has-media-on-the-right {
+			grid-template-columns: 1fr;
+
+			.wp-block-media-text__media {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			.wp-block-media-text__content {
+				grid-column: 1;
+				grid-row: 2;
+			}
+		}
+	}
+
+	.wp-block-media-text__media {
+		border-radius: var(--wp--preset--spacing--2);
+		overflow: clip;
+	}
+
+	.wp-block-media-text__content {
+		padding: 0;
+	}
+}
+
+/* --- Group block for program cards in Loops --- */
+.program-card {
+
+	@media (--medium-viewport) {
+		flex-wrap: wrap !important;
+	}
+}
+
+/* --- Single program --- */
+.single-program {
+
+	.post-header {
+
+		@media (--medium-viewport) {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+	# Classed components
+--------------------------------------------------------------*/
+.is-card {
+	background-color: var(--color-highlight);
+	border: 1px solid var(--wp--preset--color--green-light);
+	border-radius: var(--wp--preset--spacing--2);
+	height: 100%;
+	outline: 1px solid transparent;
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--2);
+	transition: all var(--speed) ease-in-out;
+
+	> * {
+		text-wrap: pretty;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	&.js-make-card-anchored {
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--color-highlight-hover);
+			outline: 1px solid var(--wp--preset--color--green-light);
+		}
+	}
+}
+
+.event-meta {
+
+	* + *::before {
+		content: '•';
+		margin-inline: 0.5ch;
+	}
+}
+
+/*--------------------------------------------------------------
+	# Utility classes
+--------------------------------------------------------------*/
+.no-shrink {
+	flex-shrink: 0;
+}
+
+.alignfull {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--max-width);
+}
