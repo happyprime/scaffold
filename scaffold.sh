@@ -72,6 +72,15 @@ find themes/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i '' "s/
 sed -i '' "s/mu-plugins\/scaffold/mu-plugins\/$project_name_hyphenated/g" package.json
 sed -i '' "s/themes\/scaffold/themes\/$project_name_hyphenated/g" package.json
 
+# Remove lines in .gitignore after the line that says "# Only ignore in the scaffold directory."
+sed -i '' '/# Only ignore in the scaffold directory./,$d' .gitignore
+
+# Replace any remaining lowercase instances of "scaffold" with the hyphenated version.
+find . -type f -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
+
+# Replace any remaining proper noun instances of "Scaffold" with the project name.
+find . -type f -exec sed -i '' "s/Scaffold/$project_name/g" {} +
+
 echo "Scaffolding complete! Project has been renamed to $project_name_hyphenated"
 
 echo -e "\nChecking for remaining instances of 'scaffold' (case insensitive):"
