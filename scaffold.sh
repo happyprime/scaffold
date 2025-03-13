@@ -11,11 +11,11 @@ to_underscored() {
 }
 
 # Prompt for project details
-read -p "Enter project name: " project_name
-read -p "Enter project website: " project_website
-read -p "Enter namespace: " namespace
-read -p "Enter repository URL: " repository_url
-read -p "Remove existing .git directory? [Y/n] " remove_git
+read -p "Enter project name (Project Name): " project_name
+read -p "Enter project website (example.org): " project_website
+read -p "Enter namespace (ProjectName): " namespace
+read -p "Enter repository URL (https://github.com/happyprime/scaffold): " repository_url
+read -p "Remove existing .git directory? (Y/n): " remove_git
 
 # Handle git directory removal
 case "${remove_git:0:1}" in
