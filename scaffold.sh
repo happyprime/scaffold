@@ -75,13 +75,35 @@ sed -i '' "s/themes\/scaffold/themes\/$project_name_hyphenated/g" package.json
 # Remove lines in .gitignore after the line that says "# Only ignore in the scaffold directory."
 sed -i '' '/# Only ignore in the scaffold directory./,$d' .gitignore
 
-# Replace any remaining lowercase instances of "scaffold" with the hyphenated version.
-LC_ALL=C find . -type f -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
+# Replace any remaining instances of scaffold/Scaffold, but only in specific file types
+echo "Performing final replacements..."
+for ext in php css js json md txt; do
+    LC_ALL=C find . -type f -name "*.$ext" \
+        -not -name "scaffold.sh" \
+        -not -path "*/\.*" \
+        -not -path "*/.*/*" \
+        -not -path "*/node_modules/*" \
+        -not -path "*/vendor/*" \
+        -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} + 2>/dev/null
+    LC_ALL=C find . -type f -name "*.$ext" \
+        -not -name "scaffold.sh" \
+        -not -path "*/\.*" \
+        -not -path "*/.*/*" \
+        -not -path "*/node_modules/*" \
+        -not -path "*/vendor/*" \
+        -exec sed -i '' "s/Scaffold/$project_name/g" {} + 2>/dev/null
+done
 
-# Replace any remaining proper noun instances of "Scaffold" with the project name.
-LC_ALL=C find . -type f -exec sed -i '' "s/Scaffold/$project_name/g" {} +
+# Clean up any temporary files that might have been created
+find . -type f -name "*.*.*" -delete
 
 echo "Scaffolding complete! Project has been renamed to $project_name_hyphenated"
 
 echo -e "\nChecking for remaining instances of 'scaffold' (case insensitive):"
-find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -not -path "*/vendor/*" -exec grep -l -i "scaffold" {} \;
+find . -type f \
+    -not -name "scaffold.sh" \
+    -not -path "*/\.*" \
+    -not -path "*/.*/*" \
+    -not -path "*/node_modules/*" \
+    -not -path "*/vendor/*" \
+    -exec grep -l -i "scaffold" {} \;
