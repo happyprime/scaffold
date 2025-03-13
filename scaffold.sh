@@ -34,7 +34,7 @@ find mu-plugins/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i ''
 find mu-plugins/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i '' "s/\$scaffold/\$$project_name_underscored/g" {} +
 
 # Replace @package documentation
-find mu-plugins/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i '' "s/@package Scaffold/@package $project_name_hyphenated/g" {} +
+find mu-plugins/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i '' "s/@package scaffold/@package $project_name_hyphenated/g" {} +
 
 # Update theme style.css
 sed -i '' "s/Theme Name: Scaffold/Theme Name: $project_name/g" themes/"$project_name_hyphenated"/css/style.css
