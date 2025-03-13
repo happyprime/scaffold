@@ -15,6 +15,20 @@ read -p "Enter project name: " project_name
 read -p "Enter project website: " project_website
 read -p "Enter namespace: " namespace
 read -p "Enter repository URL: " repository_url
+read -p "Remove existing .git directory? [Y/n] " remove_git
+
+# Handle git directory removal
+case "${remove_git:0:1}" in
+    [Nn]*)
+        echo "Keeping .git directory"
+        ;;
+    *)
+        if [ -d ".git" ]; then
+            echo "Removing .git directory"
+            rm -rf .git
+        fi
+        ;;
+esac
 
 # Convert project name to various formats
 project_name_hyphenated=$(to_hyphenated "$project_name")
