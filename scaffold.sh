@@ -66,7 +66,7 @@ find . -type f -name "*.php" -exec sed -i '' "s/SCAFFOLD_MU_PLUGIN_FILE/${projec
 find . -type f -name "*.php" -exec sed -i '' "s/'scaffold'/'$project_name_hyphenated'/g" {} +
 
 # Replace text domain in theme template files
-find themes/"$project_name_hyphenated" -type f -name "*.php" -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
+find themes/"$project_name_hyphenated" -type f -name "*.html" -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
 
 # Update package.json script paths
 sed -i '' "s/mu-plugins\/scaffold/mu-plugins\/$project_name_hyphenated/g" package.json
