@@ -16,3 +16,5 @@ debug.log
 composer.lock
 package-lock.json
 mu-plugins/scaffold/js/build/
+themes/scaffold/editor-style.css
+themes/scaffold/style.css
