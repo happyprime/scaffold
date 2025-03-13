@@ -108,9 +108,6 @@ for ext in php css js json md txt; do
         -exec sed -i '' "s/Scaffold/$project_name/g" {} + 2>/dev/null
 done
 
-# Clean up any temporary files that might have been created
-find . -type f -name "*.*.*" -delete
-
 echo "Scaffolding complete! Project has been renamed to $project_name_hyphenated"
 
 echo -e "\nChecking for remaining instances of 'scaffold' (case insensitive):"
