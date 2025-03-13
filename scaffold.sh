@@ -76,10 +76,10 @@ sed -i '' "s/themes\/scaffold/themes\/$project_name_hyphenated/g" package.json
 sed -i '' '/# Only ignore in the scaffold directory./,$d' .gitignore
 
 # Replace any remaining lowercase instances of "scaffold" with the hyphenated version.
-find . -type f -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
+LC_ALL=C find . -type f -exec sed -i '' "s/scaffold/$project_name_hyphenated/g" {} +
 
 # Replace any remaining proper noun instances of "Scaffold" with the project name.
-find . -type f -exec sed -i '' "s/Scaffold/$project_name/g" {} +
+LC_ALL=C find . -type f -exec sed -i '' "s/Scaffold/$project_name/g" {} +
 
 echo "Scaffolding complete! Project has been renamed to $project_name_hyphenated"
 
