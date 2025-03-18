@@ -7,6 +7,7 @@
 /upgrade/
 /mu-plugins/*
 !/mu-plugins/scaffold
+!/mu-plugins/index.php
 db.php
 debug.log
 

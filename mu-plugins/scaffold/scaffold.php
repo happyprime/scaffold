@@ -7,6 +7,10 @@
 
 namespace Scaffold;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 define( 'SCAFFOLD_MU_PLUGIN_DIR', __DIR__ );
 define( 'SCAFFOLD_MU_PLUGIN_FILE', __FILE__ );
 

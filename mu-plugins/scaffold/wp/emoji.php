@@ -7,6 +7,10 @@
 
 namespace Scaffold\WP\Emoji;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action( 'plugins_loaded', __NAMESPACE__ . '\remove_extra_emoji_handling' );
 add_filter( 'wp_resource_hints', __NAMESPACE__ . '\remove_wp_org_cdn_prefetch' );
 

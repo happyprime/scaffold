@@ -7,6 +7,10 @@
 
 namespace Scaffold\WP\Styles;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action( 'plugins_loaded', __NAMESPACE__ . '\remove_duotone_svg_filters' );
 
 /**
