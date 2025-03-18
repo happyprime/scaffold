@@ -89,6 +89,9 @@ sed -i '' "s/themes\/scaffold/themes\/$project_name_hyphenated/g" package.json
 # Remove lines in .gitignore after the line that says "# Only ignore in the scaffold directory."
 sed -i '' '/# Only ignore in the scaffold directory./,$d' .gitignore
 
+# Replace scaffold with $project_name_hyphenated in phpcs.xml.dist
+sed -i '' "s/scaffold/$project_name_hyphenated/g" phpcs.xml.dist
+
 # Replace any remaining instances of scaffold/Scaffold, but only in specific file types
 echo "Performing final replacements..."
 for ext in php css js json md txt; do
