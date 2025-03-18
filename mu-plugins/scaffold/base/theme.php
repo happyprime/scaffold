@@ -7,6 +7,10 @@
 
 namespace Scaffold\Base\Theme;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action( 'after_setup_theme', __NAMESPACE__ . '\configure_theme_support' );
 
 /**
