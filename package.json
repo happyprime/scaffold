@@ -37,37 +37,28 @@
 		"build": "npm run build:css && npm run build:js",
 		"lint": "npm run lint:css && npm run lint:js",
 		"fix": "npm run fix:css && npm run fix:js",
-
 		"build:css": "npm run build:css:theme",
 		"build:css:theme": "npm run lint:css:theme && npm run postcss",
-
 		"build:js": "npm run build:js:blocks && npm run build:js:features",
 		"build:js:blocks": "webpack --mode production --env dir=mu-plugins/scaffold/blocks/src/",
 		"build:js:features": "webpack --mode production --env dir=mu-plugins/scaffold/js/src/ --env type=theme",
-
 		"start:js": "npm run start:js:blocks && npm run start:js:features",
 		"start:js:blocks": "webpack --mode development --watch --env dir=mu-plugins/scaffold/blocks/src/",
 		"start:js:features": "webpack --mode development --watch --env dir=mu-plugins/scaffold/js/src/ --env type=theme",
-
 		"postcss": "npm run postcss:main && npm run postcss:editor",
 		"postcss:main": "postcss -o themes/scaffold/style.css themes/scaffold/css/style.css",
 		"postcss:editor": "postcss -o themes/scaffold/editor-style.css themes/scaffold/css/editor-style.css",
-
 		"lint:css": "npm run lint:css:theme",
 		"lint:css:theme": "stylelint themes/scaffold/css/**/*.css",
-
 		"fix:css": "npm run fix:css:theme",
 		"fix:css:theme": "stylelint --fix themes/scaffold/css/**/*.css",
-
 		"lint:js": "npm run lint:js:blocks && npm run lint:js:features",
 		"lint:js:blocks": "eslint mu-plugins/scaffold/blocks/src/",
 		"lint:js:features": "eslint mu-plugins/scaffold/js/src/",
-
 		"fix:js": "npm run fix:js:blocks && npm run fix:js:features",
 		"fix:js:blocks": "eslint --fix mu-plugins/scaffold/blocks/src/",
 		"fix:js:features": "eslint --fix mu-plugins/scaffold/js/src/",
-
-		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
+		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./package.json"
 	},
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
